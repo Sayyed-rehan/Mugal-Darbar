@@ -5,7 +5,7 @@ const orderSchema = mongoose.Schema({
     orderId:String,
     tableNumber:Number,
     userId:{
-        type:Schema.Types.ObjectId,
+        type:mongoose.Schema.Types.ObjectId,
         ref:"User"
     },
     items:[{
@@ -14,7 +14,10 @@ const orderSchema = mongoose.Schema({
         quantity:Number
     }]
 
-})
+});
+
+
+
 
 const Order = mongoose.model("Order", orderSchema)
 

@@ -8,6 +8,7 @@ dotenv.config();
 const User = require("./models/userSchema")
 const Food  = require("./models/foodSchema")
 const Table = require("./models/tableSchema")
+const Order = require("./models/orderSchema")
 
 app.use(express.json())
 
@@ -192,6 +193,56 @@ app.get("/availabletable", async(req,res)=>{
         success:true,
         mess:"founded available tables",
         data:availabletable
+    })
+})
+
+
+//order food items
+app.post("/orderFoodItems", async(req,res)=>{
+
+    const{userId, tableNumber,items} = req.body;
+
+    const totalOrders = await Order.countDocuments();
+    const orderId = totalOrders+1;
+
+    const data = new Order({
+        orderId,
+        tableNumber,
+        userId,
+        items
+    });
+    data.save()
+    res.json({
+        success:true,
+        mess:"order placed",
+        data:data
+    })
+});
+
+//get orders by orderId
+app.get("/orderById", async(req,res)=>{
+
+    const {orderId} = req.query;
+
+  const order = await Order.findOne({orderId: orderId});
+
+    res.json({
+        success: true,
+        message: "Order fetched successfully",
+        data: order
+    })
+});
+
+
+//orders by userId
+app.get("/orderByUserId", async(req,res)=>{
+
+    const{userId} = req.query;
+    const data = await Order.find({userId:userId})
+    res.json({
+        success:true,
+        mess:"orders by userID",
+        data:data
     })
 })
 
