@@ -7,6 +7,7 @@ const app = express();
 dotenv.config();
 const User = require("./models/userSchema")
 const Food  = require("./models/foodSchema")
+const Table = require("./models/tableSchema")
 
 app.use(express.json())
 
@@ -108,5 +109,90 @@ app.get("/getfoodbytitle", async(req,res)=>{
     })
 })
 
+
+//create table
+app.post("/creatTable", async(req,res)=>{
+
+    const exitTable =await Table.findOne({tableNumber:req.body.tableNumber})
+
+    const data = new Table({
+        tableNumber:req.body.tableNumber,
+        occupied:false,
+    })
+
+    if(exitTable){
+        res.json({
+            success:false,
+            mess:"table already exits"
+        })
+    }else{
+        data.save()
+        res.json({
+            success:true,
+            mess:"table created",
+            data:data
+        })
+    }
+});
+
+
+//book table
+app.post("/booktable", async(req,res)=>{
+
+    const { tableNumber, userId } = req.body;
+
+    const existingTable = await Table.findOne({ tableNumber: tableNumber });
+    if (existingTable && existingTable.occupied) {
+        return res.json({
+            success: false,
+            message: "Table already occupied"
+        })
+    }
+
+    if(existingTable){
+        existingTable.occupied = true;
+        existingTable.occupiedBy = userId;
+        await existingTable.save();
+    }
+
+    res.json({
+        success: true,
+        message: "Table booked successfully",
+        data: existingTable
+    })
+});
+
+
+
+//unbook table
+app.post("/unbooktable", async(req,res)=>{
+   
+    const {tableNumber} = req.body;
+    const exitingTable = await Table.findOne({tableNumber:tableNumber});
+
+    if(exitingTable){
+        exitingTable.occupied= false,
+        exitingTable.occupiedBy = null,
+        await exitingTable.save()
+    }
+    res.json({
+        success: true,
+        message: "Table unbooked successfully",
+        data: exitingTable
+    })
+})
+
+
+//get available table
+app.get("/availabletable", async(req,res)=>{
+
+    const availabletable = await Table.find({occupied:false})
+
+    res.json({
+        success:true,
+        mess:"founded available tables",
+        data:availabletable
+    })
+})
 
 app.listen(5000, console.log(`Backend started at ${PORT}`));
