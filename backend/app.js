@@ -5,12 +5,14 @@ const express = require('express');
 const mongoose = require("mongoose")
 const app = express();
 dotenv.config();
+const cors = require("cors")
 const User = require("./models/userSchema")
 const Food  = require("./models/foodSchema")
 const Table = require("./models/tableSchema")
 const Order = require("./models/orderSchema")
 
 app.use(express.json())
+app.use(cors())
 
 
 //mongodb
