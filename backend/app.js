@@ -86,6 +86,17 @@ app.post("/createfood", (req,res)=>{
     })
 })
 
+//read all food items
+app.get("/allFoodItems", async(req,res)=>{
+
+    const data = await Food.find()
+    res.json({
+        success:true,
+        mess:"all food items found",
+        data:data
+    })
+})
+
 //read food by  category
 app.get("/getfood", async(req,res)=>{
 
@@ -99,7 +110,7 @@ app.get("/getfood", async(req,res)=>{
     })
 })
 
-//read food by  category
+//read food by  title
 app.get("/getfoodbytitle", async(req,res)=>{
 
     const {title} = req.query
