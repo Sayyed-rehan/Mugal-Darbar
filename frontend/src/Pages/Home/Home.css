@@ -1,0 +1,13 @@
+.home-logout-button{
+    /* float:left; */
+    padding: 10px;
+    align-content: center;
+    
+}
+
+.home-search-bar{
+    width: 400px;
+    position: relative;
+    margin-left: 35%;
+
+}

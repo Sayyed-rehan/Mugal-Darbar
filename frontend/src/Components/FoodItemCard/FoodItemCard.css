@@ -1,0 +1,17 @@
+.try {
+    float: left;
+  width: 25%;
+  padding: 0 10px;
+  margin-bottom:10px;
+}
+
+/* .food-item-card-qty {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+
+} */
+
+.food-item-card-button{
+  margin-left: 120px;
+}

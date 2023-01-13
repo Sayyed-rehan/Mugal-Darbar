@@ -1,0 +1,42 @@
+.images{
+width: 10px;
+float: left;
+margin-left:10% ;
+
+}
+
+.inputs{
+   width: 35%;
+ float: right;
+ margin-right: 8%;
+ margin-top: 7%;
+   height: auto;
+   background-color:aliceblue;
+   border-radius: 5%;
+  border-style:groove;
+  /* border-color:black; */
+  box-shadow: 5px 10px #888888;
+   
+
+   padding-top: 3%;
+   padding-left: 3%;
+   padding-right: 3%;
+   padding-bottom: 1%;
+  
+   
+    
+    
+}
+
+.buttons{
+  margin-left: 40%;
+}
+
+.container{
+    background-color: antiquewhite;
+}
+
+h1{
+    /* align-items: center; */
+    align-content: center;
+}
