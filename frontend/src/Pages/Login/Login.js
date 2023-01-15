@@ -57,6 +57,10 @@ const Login = () => {
       setuser({email:"", password:""})
     }
 
+  };
+
+  const handleNeedAccount=()=>{
+    window.location.href="/sigin"
   }
 
 
@@ -91,6 +95,9 @@ const Login = () => {
       <div className='login-buttons'>
      
       <Button variant="contained" color="success" onClick={handleLogin}>Login<LoginIcon /></Button>
+      
+      <Button onClick={handleNeedAccount} variant='text' sx={{p:'10px'}} >Need account</Button>
+
       </div>
       </div>
     </div>
