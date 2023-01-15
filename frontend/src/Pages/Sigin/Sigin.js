@@ -112,9 +112,10 @@ const Sigin = () => {
         <br />
         <br />
         <div className="buttons">
-          <Button variant="contained" onClick={handleSigin}>
-            Create Account
-          </Button>
+          <Button variant="contained" onClick={handleSigin} sx={{ p: '10px' }}>Create Account</Button>
+          <br />
+         
+          <Button variant="contained" sx={{ paddingLeft: 2 }} color='success' onClick={handleAlreadyAccount}>Have an Account</Button>
           
         
         </div>

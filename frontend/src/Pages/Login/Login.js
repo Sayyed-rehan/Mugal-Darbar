@@ -40,7 +40,7 @@ const Login = () => {
         title: "Logined",
         text: responce.data.mess,
         icon: "success",
-        button: "Ok",
+        button: "Ready to Go",
       });
       localStorage.setItem("currentUser", JSON.stringify(responce.data.data))
       setuser({email:"", password:""})

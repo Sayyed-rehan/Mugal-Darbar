@@ -6,7 +6,7 @@ import FoodItemCard from '../../Components/FoodItemCard/FoodItemCard'
 import TextField from '@mui/material/TextField';
 import { Button } from '@mui/material'
 import LogoutIcon from '@mui/icons-material/Logout';
-// import { Grid } from '@mui/material'
+
 
 
 
@@ -62,8 +62,6 @@ const Home = () => {
 
   return (
     <div>
-      {/* <h1>Home</h1> */}
-      {/* <h2>{currentUser?.name}</h2> */}
       <h2 align="center" style={{ padding: "10px"}}>Mugal-Darbar</h2>
       
 
@@ -93,7 +91,7 @@ const Home = () => {
       </div>
       <div className='home-logout-button'>
 
-    <Button variant='contained' color='error' onClick={handleLogout}>Logout <LogoutIcon /></Button>
+    <Button variant='contained' color='error' onClick={handleLogout} sx={{ml:'45%'}}>Logout <LogoutIcon /></Button>
       </div>
 
     </div>
