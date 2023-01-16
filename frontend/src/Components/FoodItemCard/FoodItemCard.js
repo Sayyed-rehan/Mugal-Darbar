@@ -1,4 +1,4 @@
-// import { PromiseProvider } from 'mongoose'
+
 import React, { useState } from 'react'
 import Typography from '@mui/material/Typography';
 import CardContent from '@mui/material/CardContent';
@@ -6,8 +6,9 @@ import CardMedia from '@mui/material/CardMedia';
 import Card from '@mui/material/Card';
 import RemoveCircleOutlineRoundedIcon from '@mui/icons-material/RemoveCircleOutlineRounded';
 import AddCircleOutlineRoundedIcon from '@mui/icons-material/AddCircleOutlineRounded';
-import { Box, Button, CardActions, Grid, Paper } from '@mui/material';
+import { Button, CardActions,  } from '@mui/material';
 import "../FoodItemCard/FoodItemCard.css"
+
 
 
 
@@ -32,23 +33,20 @@ const FoodItemCard = (props) => {
 
   return (
     <div>
-    <div className='food-item-card'>
-   
 
-    </div>
 
-    <div className='try'>
+    <div className='try' >
 
 
 
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345 }} >
       <CardMedia
       component="img"
         sx={{ height: 220 }}
         image={props.imgUrl}
         title={props.title}
       />
-      <CardContent sx={{mb: -1}}>
+      <CardContent sx={{mb: -1}} >
       <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
          {props.category}
         </Typography>

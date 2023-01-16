@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { currentUser } from '../../Components/utils/currentuser'
 import "../Home/Home.css"
 import axios from 'axios'
 import FoodItemCard from '../../Components/FoodItemCard/FoodItemCard'
 import TextField from '@mui/material/TextField';
 import { Button } from '@mui/material'
 import LogoutIcon from '@mui/icons-material/Logout';
+import loginUser from '../../Components/utils/loginUser'
 
 
 
@@ -26,10 +26,9 @@ const Home = () => {
     window.location.href="/login"
   }
 
+
   useEffect(()=>{
-    if(!currentUser){
-      window.location.href="/login"
-    }
+    loginUser()
   },[])
 
 

@@ -3,15 +3,19 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import Home from './Pages/Home/Home'
 import Login from './Pages/Login/Login'
 import Sigin from './Pages/Sigin/Sigin'
+import Tables from './Pages/Tables/Tables'
 
 const App = () => {
   return (
     <div>
       <BrowserRouter>
         <Routes>
+
           <Route path='/' element={<Home />}/>
           <Route path='/sigin' element={<Sigin />}/>
           <Route path='/login' element={<Login />}/>
+          <Route path='/booktable' element={<Tables />}/>
+
         </Routes>
       </BrowserRouter>
     </div>
