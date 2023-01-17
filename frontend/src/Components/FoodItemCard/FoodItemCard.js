@@ -37,8 +37,6 @@ const FoodItemCard = (props) => {
 
     <div className='try' >
 
-
-
     <Card sx={{ maxWidth: 345 }} >
       <CardMedia
       component="img"

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import TextField from "@mui/material/TextField";
 import "../Sigin/Sigin.css";
-import { Button } from "@mui/material";
+import { Button, Stack } from "@mui/material";
 import axios from "axios";
 import importedimgs from "../../Images/1.png"
 import { currentUser } from "../../Components/utils/currentuser";
@@ -108,14 +108,18 @@ const Sigin = () => {
           fullWidth={true}
           value={user.password}
           onChange={handleInput}
+          helperText='Please do not Share your Password'
         />
         <br />
         <br />
         <div className="buttons">
-          <Button variant="contained" onClick={handleSigin} sx={{ p: '10px' }}>Create Account</Button>
+
+        <Stack>
+
+          <Button variant="contained" onClick={handleSigin} >Sign-In</Button>
           <br />
-         
-          <Button variant="contained" sx={{ paddingLeft: 2 }} color='success' onClick={handleAlreadyAccount}>Have an Account</Button>
+          <Button variant="contained"  color='success' onClick={handleAlreadyAccount}>Have an Account</Button>
+        </Stack>
           
         
         </div>

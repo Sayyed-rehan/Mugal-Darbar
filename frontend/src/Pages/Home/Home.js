@@ -90,7 +90,7 @@ const Home = () => {
       </div>
       <div className='home-logout-button'>
 
-    <Button variant='contained' color='error' onClick={handleLogout} sx={{ml:'45%'}}>Logout <LogoutIcon /></Button>
+    <Button variant='contained' color='error' onClick={handleLogout} sx={{ml:'45%'}} endIcon={<LogoutIcon />}>Logout</Button>
       </div>
 
     </div>
