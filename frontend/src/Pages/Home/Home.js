@@ -5,7 +5,9 @@ import FoodItemCard from '../../Components/FoodItemCard/FoodItemCard'
 import TextField from '@mui/material/TextField';
 import { Button } from '@mui/material'
 import LogoutIcon from '@mui/icons-material/Logout';
-import loginUser from '../../Components/utils/loginUser'
+import loginUser from "../../utils/loginUser"
+import Navbar from '../../Components/Navbar/Navbar';
+
 
 
 
@@ -61,7 +63,8 @@ const Home = () => {
 
   return (
     <div>
-      <h2 align="center" style={{ padding: "10px"}}>Mugal-Darbar</h2>
+    
+      <Navbar />
       
 
       <div className='home-search-bar'>

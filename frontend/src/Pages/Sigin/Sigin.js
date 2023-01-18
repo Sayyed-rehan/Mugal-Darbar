@@ -4,7 +4,7 @@ import "../Sigin/Sigin.css";
 import { Button, Stack } from "@mui/material";
 import axios from "axios";
 import importedimgs from "../../Images/1.png"
-import { currentUser } from "../../Components/utils/currentuser";
+import { currentUser } from "../../utils/currentuser";
 
 
 

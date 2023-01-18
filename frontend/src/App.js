@@ -2,6 +2,7 @@ import React from 'react'
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import Home from './Pages/Home/Home'
 import Login from './Pages/Login/Login'
+import Myorder from './Pages/My Orders/Myorder'
 import Sigin from './Pages/Sigin/Sigin'
 import Tables from './Pages/Tables/Tables'
 
@@ -15,6 +16,7 @@ const App = () => {
           <Route path='/sigin' element={<Sigin />}/>
           <Route path='/login' element={<Login />}/>
           <Route path='/booktable' element={<Tables />}/>
+          <Route path='/Myorder'element={<Myorder />}/>
 
         </Routes>
       </BrowserRouter>

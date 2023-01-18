@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import loginUser from '../../Components/utils/loginUser'
+import loginUser from '../../utils/loginUser'
 
 const Tables = () => {
     useEffect(()=>{
