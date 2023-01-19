@@ -17,10 +17,12 @@ import Navbar from '../../Components/Navbar/Navbar';
 
 
 
+
 const Home = () => {
 
   const [searchTextItems, setsearchTextItems] = useState('')
   const [allFoodItems, setallFoodItems] = useState([])
+
 
 
   const handleLogout=()=>{
@@ -37,7 +39,7 @@ const Home = () => {
 
   const fetchAllFoodItems = async()=>{
     const responce = await axios.get("http://localhost:5000/allFoodItems")
-    console.log('all items',responce.data.data);
+    // console.log('all items',responce.data.data);
     setallFoodItems(responce.data.data)
   }
 

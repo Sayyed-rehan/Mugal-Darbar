@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react'
 import Typography from '@mui/material/Typography';
 import CardContent from '@mui/material/CardContent';
@@ -8,7 +7,7 @@ import RemoveCircleOutlineRoundedIcon from '@mui/icons-material/RemoveCircleOutl
 import AddCircleOutlineRoundedIcon from '@mui/icons-material/AddCircleOutlineRounded';
 import { Button, CardActions,  } from '@mui/material';
 import "../FoodItemCard/FoodItemCard.css"
-
+import swal from 'sweetalert'
 
 
 
@@ -17,17 +16,26 @@ const FoodItemCard = (props) => {
 
   const [qty, setqty] = useState(1)
 
-  const handleAddtoList=()=>{
+  const handleAddtoList= async()=>{
     
     const listObject={
       title:(props.title),
       price:(props.price),
+      img:(props.imgUrl),
       qty:qty
     }
     
     const exitingsList = JSON.parse(localStorage.getItem('list')) || []
     exitingsList.push(listObject)
     localStorage.setItem('list', JSON.stringify(exitingsList))
+
+    await swal({
+      title:"Item added to Cart",
+      icon:"success"
+    })
+    window.location.reload()
+
+
   }
 
 
