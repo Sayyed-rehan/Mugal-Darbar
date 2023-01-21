@@ -7,8 +7,10 @@ import TextField from "@mui/material/TextField";
 import { Button, Stack } from "@mui/material";
 import PersonIcon from "@mui/icons-material/Person";
 import LoginIcon from "@mui/icons-material/Login";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate()
   const [user, setuser] = useState({
     email: "",
     password: "",
@@ -18,7 +20,8 @@ const Login = () => {
   useEffect(() => {
     const currentUser = JSON.parse(localStorage.getItem("currentUser"));
     if (currentUser) {
-      window.location.href = "/";
+      // window.location.href = "/";
+      navigate("/")
     }
   }, []);
 
@@ -33,7 +36,6 @@ const Login = () => {
     });
     console.log(responce.data.mess);
     if (responce.data.success) {
-      // alert("Login " +responce.data.mess)
       await swal({
         title: "Logined",
         text: responce.data.mess,
@@ -43,6 +45,7 @@ const Login = () => {
       localStorage.setItem("currentUser", JSON.stringify(responce.data.data));
       setuser({ email: "", password: "" });
       window.location.href = "/";
+   
     } else {
       await swal({
         title: "Invalid",
@@ -56,7 +59,7 @@ const Login = () => {
   };
 
   const handleNeedAccount = () => {
-    window.location.href = "/sigin";
+    navigate("/sigin")
   };
 
   return (

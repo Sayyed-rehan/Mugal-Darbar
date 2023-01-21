@@ -7,6 +7,7 @@ import { Button } from '@mui/material'
 import LogoutIcon from '@mui/icons-material/Logout';
 import loginUser from "../../utils/loginUser"
 import Navbar from '../../Components/Navbar/Navbar';
+import swal from 'sweetalert';
 
 
 
@@ -19,27 +20,26 @@ import Navbar from '../../Components/Navbar/Navbar';
 
 
 const Home = () => {
-
+  
   const [searchTextItems, setsearchTextItems] = useState('')
   const [allFoodItems, setallFoodItems] = useState([])
 
 
-
-  const handleLogout=()=>{
+  
+  const handleLogout=async()=>{
+    await swal({
+      title:"Logout Successfully",
+      icon:"success"
+    })
     localStorage.removeItem('currentUser')
     window.location.href="/login"
   }
-
-
-  useEffect(()=>{
-    loginUser()
-  },[])
-
+  
+   
 
 
   const fetchAllFoodItems = async()=>{
     const responce = await axios.get("http://localhost:5000/allFoodItems")
-    // console.log('all items',responce.data.data);
     setallFoodItems(responce.data.data)
   }
 
@@ -59,14 +59,16 @@ const Home = () => {
   },[searchTextItems])
 
   
-
+  useEffect(()=>{
+    loginUser()
+  },[])
 
 
 
   return (
     <div>
     
-      <Navbar />
+      <Navbar titleHome="Welcome to Mugal-Darbar"/>
       
 
       <div className='home-search-bar'>

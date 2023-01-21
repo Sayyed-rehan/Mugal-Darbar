@@ -26,11 +26,11 @@ const Navbar = (props) => {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Mugal-Dabrbar
           </Typography>
-          <Typography variant="h4" sx={{mr:"400px"}}>{props.title}</Typography>
+          <Typography variant="h4" sx={{mr:'25%'}}>{props.title} {props.titleHome}</Typography>
 
-          <Typography sx={{m:'10px'}}>🥪 feeling hungry - {currentUser.name.split(" ")[ 1]}😋</Typography>
+          <Typography sx={{m:'10px'}}>🥪 feeling hungry -  {currentUser?currentUser.name.split(" ")[1]:"guest"}😋</Typography>
+      
 
-          
          
 
           <Button color="inherit" variant='outlined'  onClick={()=>navigate("/Myorder")}

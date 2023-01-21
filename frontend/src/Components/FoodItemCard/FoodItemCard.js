@@ -45,7 +45,7 @@ const FoodItemCard = (props) => {
 
     <div className='try' >
 
-    <Card sx={{ maxWidth: 345 }} >
+    <Card sx={{ maxWidth: 345, boxShadow:12, display: 'flex', flexDirection:'column'}}  >
       <CardMedia
       component="img"
         sx={{ height: 220 }}
