@@ -1,5 +1,5 @@
 import { AppBar, Button, IconButton, Toolbar, Typography } from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
+
 import React from "react";
 // import "../Navbar/Navbar.css"
 import { currentUser } from "../../utils/currentuser";
@@ -23,7 +23,7 @@ const Navbar = (props) => {
               Mughal-Darbar
             </Typography>
 
-            <Typography variant="h4" align = "center" sx={{ mr: "25%" }}>
+            <Typography variant="h4" align = "center" sx={{mr:"20%"}}>
               {props.title} {props.titleHome}
             </Typography>
 

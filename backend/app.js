@@ -97,6 +97,17 @@ app.get("/allFoodItems", async(req,res)=>{
     })
 })
 
+//read all food items by id
+app.get("/getFoodItemsById", async(req,res)=>{
+    const {_id} = req.query
+    const data =await Food.findOne({_id:_id})
+    res.json({
+        success:true,
+        mess:"items found by id",
+        data:data
+    })
+})
+
 //read food by  category
 app.get("/getfood", async(req,res)=>{
 
