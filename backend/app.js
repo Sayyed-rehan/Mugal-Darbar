@@ -211,7 +211,7 @@ app.post("/unbooktable", async(req,res)=>{
 //get available table
 app.get("/availabletable", async(req,res)=>{
 
-    const availabletable = await Table.find({occupied:false})
+    const availabletable = await Table.find()
 
     res.json({
         success:true,

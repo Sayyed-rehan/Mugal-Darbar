@@ -27,6 +27,7 @@ const Myorder = () => {
         items:myFoodItems
       })
       console.log(responce.data.data);
+      localStorage.setItem('BookedOrders',JSON.stringify(myFoodItems))
       console.log(responce.data.success);
       if(responce.data.success === true){
         await swal ({

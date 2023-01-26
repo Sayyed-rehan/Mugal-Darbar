@@ -34,8 +34,6 @@ const FoodItemCard = (props) => {
       icon:"success"
     })
     window.location.reload()
-
-
   }
 
 

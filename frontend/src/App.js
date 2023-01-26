@@ -1,6 +1,7 @@
 import React from 'react'
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
-// import ConfirmedOrders from './Confirmed Orders/ConfirmedOrders'
+import BookedOrders from './Pages/Booked Orders/BookedOrders'
+
 import Home from './Pages/Home/Home'
 import Login from './Pages/Login/Login'
 import Myorder from './Pages/My Orders/Myorder'
@@ -19,7 +20,7 @@ const App = () => {
           <Route path='/login' element={<Login />}/>
           <Route path='/booktable' element={<Tables />}/>
           <Route path='/Myorder'element={<Myorder />}/>
-          {/* <Route path='/ConfirmedOrders' element={<ConfirmedOrders />}/> */}
+          <Route path='/BookedOrders' element={<BookedOrders />}/>
 
         </Routes>
       </BrowserRouter>
