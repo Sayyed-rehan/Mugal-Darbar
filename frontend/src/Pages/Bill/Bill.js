@@ -4,7 +4,7 @@ import { myBill } from "../../utils/Bills";
 import { tableNo } from "../../utils/TableBooked";
 import { Box, Button, Card, CardContent, CardMedia, Stack, Typography } from '@mui/material'
 import "./Bill.css"
-import Navbar from "../Navbar/Navbar"
+import Navbar from "../../Components/Navbar/Navbar"
 import swal from 'sweetalert'
 
 const Bill = () => {
