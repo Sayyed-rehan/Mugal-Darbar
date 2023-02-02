@@ -22,12 +22,10 @@ const Home = () => {
     window.location.href = "/login";
   };
 
-
   const fetchAllFoodItems = async () => {
     const responce = await axios.get("http://localhost:5000/allFoodItems");
     setallFoodItems(responce.data.data);
   };
-  
 
   const fetchSpecificFoodItems = async () => {
     const responce = await axios.get(
@@ -92,6 +90,7 @@ const Home = () => {
           Logout
         </Button>
       </div>
+      
     </div>
   );
 };

@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const navigate = useNavigate()
+  
   const [user, setuser] = useState({
     email: "",
     password: "",
@@ -20,7 +21,6 @@ const Login = () => {
   useEffect(() => {
     const currentUser = JSON.parse(localStorage.getItem("currentUser"));
     if (currentUser) {
-      // window.location.href = "/";
       navigate("/")
     }
   }, []);

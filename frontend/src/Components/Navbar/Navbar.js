@@ -24,7 +24,7 @@ const Navbar = (props) => {
             </Typography>
 
             <Typography variant="h4" align = "center" sx={{mr:"20%"}}>
-              {props.title} {props.titleHome} {props.tableBooking}
+              {props.title} {props.titleHome} {props.tableBooking} {props.billing}
             </Typography>
 
             <Typography sx={{ m: "10px" }}>

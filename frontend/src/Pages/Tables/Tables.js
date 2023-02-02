@@ -11,6 +11,8 @@ import ChairRoundedIcon from '@mui/icons-material/ChairRounded';
 import Navbar from "../../Components/Navbar/Navbar";
 import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled';
 import TimerIcon from '@mui/icons-material/Timer';
+import "./Tables.css"
+import {useNavigate} from 'react-router-dom'
 
 
 
@@ -28,11 +30,12 @@ const Tables = () => {
     loginUser();
   }, []);
 
+  const navigate = useNavigate()
 
 
 
   const [availabelTables, setavailabelTables] = useState([])
-  // const [btnDisabled, setBtnDisabled] = useState(false)
+  const [tableNo, settableNo] = useState('')
 
   const fetchAvaliableTables = async () => {
     const responce = await axios.get("http://localhost:5000/availabletable");
@@ -53,6 +56,7 @@ const Tables = () => {
       "userId":(currentUser._id)
     })
     console.log(responce.data.message);
+    localStorage.setItem('tableBooked', JSON.stringify(e.target.value))
     if(responce.data.success){
       await swal({
         title: "Table Booked",
@@ -61,6 +65,8 @@ const Tables = () => {
         button: "Go",
       });
       window.location.reload()
+      // window.location.href="/bill"
+
     }else{
       await swal({
         title: "Already Booked",
@@ -86,6 +92,10 @@ const Tables = () => {
 
   }
 
+  const handleProceedtoBill =()=>{
+    navigate("/bill")
+  }
+
 
 
 
@@ -102,27 +112,34 @@ const Tables = () => {
       <Grid container rowSpacing={1}  columnSpacing={{ xs: 1, sm: 2, md: 3 }} >
       {availabelTables.map((x)=>(
         <Grid item xs={6} >
-          <Item sx={{height:250}} style={{backgroundColor:x.occupied?'#ff5252':'yellowgreen'}}>
+        <Box boxShadow={15}>
+
+          <Item sx={{height:250}} style={{backgroundColor:x.occupied?'#ff5252':'yellowgreen'}} >
           <Typography variant="h3" sx={{mt:'70px'}} >
           <TableRestaurantRoundedIcon />
           {x.tableNumber}
           <ChairRoundedIcon />
           </Typography>
           </Item>
+        </Box>
           <Stack direction={'row'} sx={{p:'10px'}} spacing={2} alignItems='center' justifyContent='center'>
 
           <Button onClick={handleBook} value={x.tableNumber} variant='contained' color='success' endIcon={<AccessTimeFilledIcon />}>
           Book
           </Button>
-          <Button onClick={handleUnbook} value={x.tableNumber} variant='contained' endIcon={<TimerIcon />} color='error'>
+          {/* <Button onClick={handleUnbook} value={x.tableNumber} variant='contained' endIcon={<TimerIcon />} color='error'>
           UnBook
-          </Button>
+          </Button> */}
           </Stack>
         </Grid>
       ))}
       </Grid>
     </Box>
   
+      </div>
+      <div className="tables-button">
+
+      <Button variant="contained" onClick={handleProceedtoBill} sx={{bgcolor:"#3f51b5"}}>Proceed to Bill</Button>
       </div>
     </div>
   );

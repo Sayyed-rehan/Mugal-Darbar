@@ -1,0 +1,33 @@
+/* .bill-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: ;
+} */
+
+.bill-card {
+    display: flex;
+    justify-content: center;
+    /* align-content: center; */
+    align-items: center;
+    /* max-width:max-content; */
+}
+
+/* .bill-stack {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  background-color: aqua;
+} */
+
+.bill-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.bill-header {
+    padding-left: 45px;
+    padding-bottom: 5px;
+}

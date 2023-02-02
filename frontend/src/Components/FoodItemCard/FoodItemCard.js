@@ -57,7 +57,7 @@ const FoodItemCard = (props) => {
         <Typography gutterBottom variant="h5" component="div">
           {props.title}
         </Typography>
-        <Typography variant="body2" color="text.secondary">
+        <Typography variant="body2" color="text.secondary" >
          {props.desc}
         </Typography>
  

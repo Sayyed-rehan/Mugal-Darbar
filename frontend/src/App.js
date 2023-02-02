@@ -1,5 +1,6 @@
 import React from 'react'
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import Bill from './Components/Bill/Bill'
 import BookedOrders from './Pages/Booked Orders/BookedOrders'
 
 import Home from './Pages/Home/Home'
@@ -21,6 +22,7 @@ const App = () => {
           <Route path='/booktable' element={<Tables />}/>
           <Route path='/Myorder'element={<Myorder />}/>
           <Route path='/BookedOrders' element={<BookedOrders />}/>
+          <Route path='/bill' element={<Bill/>}/>
 
         </Routes>
       </BrowserRouter>

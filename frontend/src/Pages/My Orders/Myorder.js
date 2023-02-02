@@ -1,14 +1,40 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import axios from 'axios'
 import swal from 'sweetalert'
-import {Box,  Button, Card, CardActions, CardContent, CardMedia,  Stack, Typography, } from "@mui/material";
+import {Box,  Button, Card, CardActions, CardContent, CardMedia,  Paper,  Stack, Typography, } from "@mui/material";
 import { myFoodItems, myFoodItemsCount } from "../../utils/mylist";
 import { currentUser } from "../../utils/currentuser";
 import "./Myorder.css";
 import Navbar from "../../Components/Navbar/Navbar";
+import { styled } from '@mui/material/styles';
+
+
+
+const Item = styled(Paper)(({ theme }) => ({
+  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+  ...theme.typography.body2,
+  padding: theme.spacing(1),
+  textAlign: 'center',
+  color: theme.palette.text.secondary,
+}));
 
 
 const Myorder = () => {
+
+  
+
+  const [bill, setbill] = useState(0);
+
+
+useEffect((i)=>{
+  let x=0
+  myFoodItems.map((a)=>{
+    x = x+(a.price*a.qty)
+    setbill(x)
+  })
+},[])
+
+    console.log(bill)
  
 
   const handleRemove =(e)=>{
@@ -35,8 +61,9 @@ const Myorder = () => {
           text:"Your are all set to Book your table",
           icon:"success"
         })
+        localStorage.setItem("Bill", JSON.stringify(myFoodItems))
         localStorage.removeItem("list")
-        window.location.reload()  
+        window.location.href="/booktable"
       }
     }
 
@@ -46,6 +73,7 @@ const Myorder = () => {
   return (
     <div>
       <Navbar title="My Orders" />
+      {/* <h1>{bill}</h1> */}
 
       <Typography variant="h3" sx={{textAlign:"center"}}>{myFoodItemsCount >0?
       <div className="my-orders-table">
@@ -69,6 +97,7 @@ const Myorder = () => {
                   <Typography variant="h6" gutterBottom>
                     Qty : {x.qty}🍴
                   </Typography>
+                  <Typography variant="h6" gutterBottom >Bill : ₹{x.price*x.qty}/-</Typography>
                 </CardContent>
               </Box>
 
@@ -77,13 +106,19 @@ const Myorder = () => {
               <Box display="flex" justifyContent="flex-start" alignItems="center">
               <CardActions>
                 <Button variant="contained" size="samll" sx={{ bgcolor: "#1e88e5" }} onClick={handleRemove} value={i}>
-                Remove</Button>
+                Remove
+                </Button>
               </CardActions>
               </Box>
             </Card>
           ))}
         </Stack>
-        <Button variant="contained" sx={{ml:"auto", mr:"auto", display:"block"}} onClick={handleOrder} color="success">
+        <Stack   sx={{display:"block", ml:"auto",mr:"auto", pb:'10px', }} width='400px'>
+          <Item sx={{boxShadow: 15, backgroundColor:"#5c6bc0"}}>
+            <Typography variant="h5" color="#eeeeee">Your total bill is : ₹ {bill}/-</Typography>
+          </Item>
+        </Stack>
+        <Button variant="contained" sx={{ml:"auto", mr:"auto", display:"block",mb:"10px"}} onClick={handleOrder} color="success">
         Order
         </Button>
         
