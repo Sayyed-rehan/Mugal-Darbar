@@ -10,9 +10,13 @@ import Navbar from "../../Components/Navbar/Navbar";
 import swal from "sweetalert";
 
 const Home = () => {
+
   const [searchTextItems, setsearchTextItems] = useState("");
   const [allFoodItems, setallFoodItems] = useState([]);
 
+
+
+  //logout
   const handleLogout = async () => {
     await swal({
       title: "Logout Successfully",
@@ -22,11 +26,16 @@ const Home = () => {
     window.location.href = "/login";
   };
 
+
+
+  //all food items
   const fetchAllFoodItems = async () => {
     const responce = await axios.get("http://localhost:5000/allFoodItems");
     setallFoodItems(responce.data.data);
   };
 
+
+  //sepficic food items 
   const fetchSpecificFoodItems = async () => {
     const responce = await axios.get(
       `http://localhost:5000/getfoodbytitle?title=${searchTextItems}`
@@ -34,6 +43,8 @@ const Home = () => {
     console.log("spefific items", responce.data.data);
     setallFoodItems(responce.data.data);
   };
+
+
 
   useEffect(() => {
     if (searchTextItems.length > 0) {

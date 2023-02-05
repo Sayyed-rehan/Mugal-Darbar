@@ -16,8 +16,9 @@ const FoodItemCard = (props) => {
 
   const [qty, setqty] = useState(1)
 
+
+  //add cart details to localstroage
   const handleAddtoList= async()=>{
-    
     const listObject={
       title:(props.title),
       price:(props.price),
@@ -54,7 +55,7 @@ const FoodItemCard = (props) => {
       <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
          {props.category}
         </Typography>
-        <Typography gutterBottom variant="h5" component="div">
+        <Typography gutterBottom variant="h5" component="div" >
           {props.title}
         </Typography>
         <Typography variant="body2" color="text.secondary" >

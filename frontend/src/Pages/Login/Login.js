@@ -10,8 +10,8 @@ import LoginIcon from "@mui/icons-material/Login";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const navigate = useNavigate()
-  
+  const navigate = useNavigate();
+
   const [user, setuser] = useState({
     email: "",
     password: "",
@@ -21,7 +21,7 @@ const Login = () => {
   useEffect(() => {
     const currentUser = JSON.parse(localStorage.getItem("currentUser"));
     if (currentUser) {
-      navigate("/")
+      navigate("/");
     }
   }, []);
 
@@ -29,6 +29,7 @@ const Login = () => {
     setuser({ ...user, [e.target.name]: e.target.value });
   };
 
+  //login
   const handleLogin = async () => {
     const responce = await axios.post("http://localhost:5000/login", {
       email: user.email,
@@ -45,7 +46,6 @@ const Login = () => {
       localStorage.setItem("currentUser", JSON.stringify(responce.data.data));
       setuser({ email: "", password: "" });
       window.location.href = "/";
-   
     } else {
       await swal({
         title: "Invalid",
@@ -58,8 +58,9 @@ const Login = () => {
     }
   };
 
+  //need to register
   const handleNeedAccount = () => {
-    navigate("/sigin")
+    navigate("/sigin");
   };
 
   return (
@@ -73,7 +74,7 @@ const Login = () => {
       </div>
       <div className="login-inputs">
         <div className="login-inputs-header">
-          {/* <h5>User-Login</h5> */}
+          
           <PersonIcon color="primary" fontSize="large" />
         </div>
 
@@ -108,25 +109,27 @@ const Login = () => {
         />
 
         <div className="login-buttons">
+          <Stack direction="row" spacing={2}>
+            <Button
+              variant="contained"
+              color="success"
+              onClick={handleLogin}
+              endIcon={<LoginIcon />}
+            >
+              Login
+            </Button>
 
-        <Stack direction='row' spacing={2}>
-
-          <Button
-            variant="contained"
-            color="success"
-          
-            onClick={handleLogin}
-            endIcon={<LoginIcon />}>
-            Login
-          </Button>
-
-          <Button onClick={handleNeedAccount} variant="text" sx={{ p: "10px" }} color='info'>
-            Need account
-          </Button>
-        </Stack>
+            <Button
+              onClick={handleNeedAccount}
+              variant="text"
+              sx={{ p: "10px" }}
+              color="info"
+            >
+              Need account
+            </Button>
+          </Stack>
         </div>
       </div>
-
     </div>
   );
 };

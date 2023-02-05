@@ -1,12 +1,12 @@
 import { AppBar, Button, IconButton, Toolbar, Typography } from "@mui/material";
 
 import React from "react";
-// import "../Navbar/Navbar.css"
 import { currentUser } from "../../utils/currentuser";
 import LocalDiningTwoToneIcon from "@mui/icons-material/LocalDiningTwoTone";
 import { myFoodItemsCount } from "../../utils/mylist";
 import { useNavigate } from "react-router-dom";
 import MosqueIcon from "@mui/icons-material/Mosque";
+
 
 const Navbar = (props) => {
   const navigate = useNavigate();
@@ -19,11 +19,14 @@ const Navbar = (props) => {
             <IconButton edge="start" color="inherit" sx={{ mr: 1 }}>
               <MosqueIcon sx={{ fontSize: 50 }} onClick={()=>navigate("/")}/>
             </IconButton>
-            <Typography variant="h6"  component="div" sx={{ flexGrow: 1 }}>
+            
+
+            <Typography variant="h4"  component="div" sx={{ flexGrow: 1 }} fontFamily='Kahlil'>
               Mughal-Darbar
             </Typography>
+            
 
-            <Typography variant="h4" align = "center" sx={{mr:"20%"}}>
+            <Typography variant="h4" align = "center" sx={{mr:"20%"}} >
               {props.title} {props.titleHome} {props.tableBooking} {props.billing}
             </Typography>
 

@@ -10,7 +10,6 @@ import TableRestaurantRoundedIcon from '@mui/icons-material/TableRestaurantRound
 import ChairRoundedIcon from '@mui/icons-material/ChairRounded';
 import Navbar from "../../Components/Navbar/Navbar";
 import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled';
-import TimerIcon from '@mui/icons-material/Timer';
 import "./Tables.css"
 import {useNavigate} from 'react-router-dom'
 
@@ -26,6 +25,7 @@ const Item = styled(Paper)(({ theme }) => ({
 
 
 const Tables = () => {
+
   useEffect(() => {
     loginUser();
   }, []);
@@ -35,8 +35,10 @@ const Tables = () => {
 
 
   const [availabelTables, setavailabelTables] = useState([])
-  const [tableNo, settableNo] = useState('')
+  // const [tableNo, settableNo] = useState('')
 
+
+  //get availabe tabled
   const fetchAvaliableTables = async () => {
     const responce = await axios.get("http://localhost:5000/availabletable");
     console.log(responce.data.data);
@@ -49,7 +51,7 @@ const Tables = () => {
   console.log(availabelTables);
 
 
-
+  // book tables
   const handleBook=async(e)=>{
     const responce = await axios.post("http://localhost:5000/booktable",{
       "tableNumber":(e.target.value), 
@@ -77,20 +79,21 @@ const Tables = () => {
     }
   }
 
-  const  handleUnbook=async(e)=>{
-    const responce = await axios.post("http://localhost:5000/unbooktable",{
-      "tableNumber":(e.target.value)
-    })
-    await swal({
-      title: "Table Unbooked",
-      text: responce.data.message,
-      icon: "success",
-      button: "Ready to Go",
-    });
-    window.location.reload()
-    console.log(responce.data.data)
+  //unbook tables
+  // const  handleUnbook=async(e)=>{
+  //   const responce = await axios.post("http://localhost:5000/unbooktable",{
+  //     "tableNumber":(e.target.value)
+  //   })
+  //   await swal({
+  //     title: "Table Unbooked",
+  //     text: responce.data.message,
+  //     icon: "success",
+  //     button: "Ready to Go",
+  //   });
+  //   window.location.reload()
+  //   console.log(responce.data.data)
 
-  }
+  // }
 
   const handleProceedtoBill =()=>{
     navigate("/bill")
