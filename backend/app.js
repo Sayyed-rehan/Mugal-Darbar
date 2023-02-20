@@ -10,6 +10,8 @@ const User = require("./models/userSchema")
 const Food  = require("./models/foodSchema")
 const Table = require("./models/tableSchema")
 const Order = require("./models/orderSchema")
+const path  = require('path')
+const _dirname = path.resolve()
 
 app.use(express.json())
 app.use(cors())
@@ -269,5 +271,13 @@ app.get("/orderByUserId", async(req,res)=>{
         data:data
     })
 })
+
+
+app.use(express.static(path.join(_dirname, "..", "frontend", "build")));
+
+app.get("*", (req,res)=>{
+    res.sendFile(path.join(_dirname, "..", "frontend", "build", "index.html"))
+})
+
 
 app.listen(5000, console.log(`Backend started at ${PORT}`));
