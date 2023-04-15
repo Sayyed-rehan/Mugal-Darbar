@@ -134,9 +134,9 @@ const Myorder = () => {
               width="400px"
             >
               <Item sx={{ boxShadow: 15, backgroundColor: "#5c6bc0" }}>
-                <Typography variant="h5" color="#eeeeee">
+                {/* <Typography variant="h5" color="#eeeeee">
                   Your total bill is : ₹ {bill}/-
-                </Typography>
+                </Typography> */}
               </Item>
             </Stack>
             <Button
